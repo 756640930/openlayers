@@ -199,15 +199,14 @@ var styles2 = {
       width: 2
     })
   })
-};
-var styles3 = {
-  'LineString': new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'rgba(200,20,20)',
-      width: 2
-    })
-  })
-};
+}; // var styles3 = {
+//   'LineString': new ol.style.Style({
+//     stroke: new ol.style.Stroke({
+//       color: 'rgba(200,20,20)',
+//       width: 2,
+//     }),
+//   }),
+// };
 
 var styleFunction = function styleFunction(feature) {
   return styles[feature.getGeometry().getType()];
@@ -221,14 +220,12 @@ var styleFunction2 = function styleFunction2(feature) {
 }; //总Link的数据
 
 
-var link2_data = window.link2_geojson_data;
-
-var styleFunction3 = function styleFunction3(feature) {
-  return styles3[feature.getGeometry().getType()];
-}; //总Link的数据
-
-
-var link3_data = window.link3_geojson_data; //转化geojson数据的坐标系
+var link2_data = window.link2_geojson_data; // var styleFunction3 = function (feature) {
+//   return styles3[feature.getGeometry().getType()];
+// };
+// //总Link的数据
+// var link3_data = window.link3_geojson_data;
+//转化geojson数据的坐标系
 
 for (var i = 0; i < link_data.features.length; i++) {
   //开始转换
@@ -246,30 +243,27 @@ for (var i = 0; i < link2_data.features.length; i++) {
   }
 }
 
-;
-
-for (var i = 0; i < link3_data.features.length; i++) {
-  //开始转换
-  for (var j = 0; j < link3_data.features[i].geometry.coordinates.length; j++) {
-    link3_data.features[i].geometry.coordinates[j] = ol.proj.transform(link3_data.features[i].geometry.coordinates[j], 'EPSG:4326', 'EPSG:3857');
-  }
-}
-
-; //总网络geo数据
+; // for(var i = 0;i < link3_data.features.length;i++){
+//   //开始转换
+//   for(var j=0;j<link3_data.features[i].geometry.coordinates.length;j++){
+//     link3_data.features[i].geometry.coordinates[j] =ol.proj.transform(link3_data.features[i].geometry.coordinates[j],'EPSG:4326','EPSG:3857');
+//   }
+// };
+//总网络geo数据
 
 var geojsonObject = link_data;
-var geojsonObject2 = link2_data;
-var geojsonObject3 = link3_data; //加载道路geojson对象数据
+var geojsonObject2 = link2_data; // var geojsonObject3 = link3_data;
+//加载道路geojson对象数据
 
 var vectorSource = new ol.source.Vector({
   features: new ol.format.GeoJSON().readFeatures(geojsonObject)
 });
 var vectorSource2 = new ol.source.Vector({
   features: new ol.format.GeoJSON().readFeatures(geojsonObject2)
-});
-var vectorSource3 = new ol.source.Vector({
-  features: new ol.format.GeoJSON().readFeatures(geojsonObject3)
-});
+}); // var vectorSource3 = new ol.source.Vector({
+//   features: new ol.format.GeoJSON().readFeatures(geojsonObject3),
+// });
+
 var link_Layer = new ol.layer.Vector({
   source: vectorSource,
   style: styleFunction,
@@ -279,12 +273,12 @@ var link_Layer2 = new ol.layer.Vector({
   source: vectorSource2,
   style: styleFunction2,
   visible: true
-});
-var link_Layer3 = new ol.layer.Vector({
-  source: vectorSource3,
-  style: styleFunction3,
-  visible: true
-}); //绑定多选框
+}); // var link_Layer3 = new ol.layer.Vector({
+//   source: vectorSource3,
+//   style: styleFunction3,
+//   visible: true,
+// });
+//绑定多选框
 
 var controls = document.getElementById('controls'); // 事件委托
 
@@ -662,8 +656,8 @@ var flightsLayer_5 = new ol.layer.Vector({
   }
 });
 map.addLayer(link_Layer);
-map.addLayer(link_Layer2);
-map.addLayer(link_Layer3);
+map.addLayer(link_Layer2); // map.addLayer(link_Layer3);
+
 map.addLayer(flightsLayer_1);
 map.addLayer(flightsLayer_2);
 map.addLayer(flightsLayer_3);
@@ -883,7 +877,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50844" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62612" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

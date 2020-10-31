@@ -66,22 +66,22 @@ var selectPointerMove = new ol.interaction.Select({
 
 
 //总网络link的style
-var styles = {
-  'LineString': new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'blue',
-      width: 2,
-    }),
-  }),
-};
-var styles2 = {
-  'LineString': new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'rgba(200,200,20)',
-      width: 2,
-    }),
-  }),
-};
+// var styles = {
+//   'LineString': new ol.style.Style({
+//     stroke: new ol.style.Stroke({
+//       color: 'blue',
+//       width: 2,
+//     }),
+//   }),
+// };
+// var styles2 = {
+//   'LineString': new ol.style.Style({
+//     stroke: new ol.style.Stroke({
+//       color: 'rgba(200,200,20)',
+//       width: 2,
+//     }),
+//   }),
+// };
 // var styles3 = {
 //   'LineString': new ol.style.Style({
 //     stroke: new ol.style.Stroke({
@@ -91,16 +91,16 @@ var styles2 = {
 //   }),
 // };
 
-var styleFunction = function (feature) {
-  return styles[feature.getGeometry().getType()];
-};
-//总Link的数据
-var link_data = window.link_geojson_data;
-var styleFunction2 = function (feature) {
-  return styles2[feature.getGeometry().getType()];
-};
-//总Link的数据
-var link2_data = window.link2_geojson_data;
+// var styleFunction = function (feature) {
+//   return styles[feature.getGeometry().getType()];
+// };
+// //总Link的数据
+// var link_data = window.link_geojson_data;
+// var styleFunction2 = function (feature) {
+//   return styles2[feature.getGeometry().getType()];
+// };
+// //总Link的数据
+// var link2_data = window.link2_geojson_data;
 // var styleFunction3 = function (feature) {
 //   return styles3[feature.getGeometry().getType()];
 // };
@@ -109,18 +109,18 @@ var link2_data = window.link2_geojson_data;
 
 
 //转化geojson数据的坐标系
-for(var i = 0;i < link_data.features.length;i++){
-  //开始转换
-  for(var j=0;j<link_data.features[i].geometry.coordinates.length;j++){
-    link_data.features[i].geometry.coordinates[j] =ol.proj.transform(link_data.features[i].geometry.coordinates[j],'EPSG:4326','EPSG:3857');
-  } 
-};
-for(var i = 0;i < link2_data.features.length;i++){
-  //开始转换
-  for(var j=0;j<link2_data.features[i].geometry.coordinates.length;j++){
-    link2_data.features[i].geometry.coordinates[j] =ol.proj.transform(link2_data.features[i].geometry.coordinates[j],'EPSG:4326','EPSG:3857');
-  }
-};
+// for(var i = 0;i < link_data.features.length;i++){
+//   //开始转换
+//   for(var j=0;j<link_data.features[i].geometry.coordinates.length;j++){
+//     link_data.features[i].geometry.coordinates[j] =ol.proj.transform(link_data.features[i].geometry.coordinates[j],'EPSG:4326','EPSG:3857');
+//   } 
+// };
+// for(var i = 0;i < link2_data.features.length;i++){
+//   //开始转换
+//   for(var j=0;j<link2_data.features[i].geometry.coordinates.length;j++){
+//     link2_data.features[i].geometry.coordinates[j] =ol.proj.transform(link2_data.features[i].geometry.coordinates[j],'EPSG:4326','EPSG:3857');
+//   }
+// };
 // for(var i = 0;i < link3_data.features.length;i++){
 //   //开始转换
 //   for(var j=0;j<link3_data.features[i].geometry.coordinates.length;j++){
@@ -129,30 +129,30 @@ for(var i = 0;i < link2_data.features.length;i++){
 // };
 
 //总网络geo数据
-var geojsonObject = link_data;
-var geojsonObject2 = link2_data;
-// var geojsonObject3 = link3_data;
-//加载道路geojson对象数据
-var vectorSource = new ol.source.Vector({
-  features: new ol.format.GeoJSON().readFeatures(geojsonObject),
-});
-var vectorSource2 = new ol.source.Vector({
-  features: new ol.format.GeoJSON().readFeatures(geojsonObject2),
-});
+// var geojsonObject = link_data;
+// var geojsonObject2 = link2_data;
+// // var geojsonObject3 = link3_data;
+// //加载道路geojson对象数据
+// var vectorSource = new ol.source.Vector({
+//   features: new ol.format.GeoJSON().readFeatures(geojsonObject),
+// });
+// var vectorSource2 = new ol.source.Vector({
+//   features: new ol.format.GeoJSON().readFeatures(geojsonObject2),
+// });
 // var vectorSource3 = new ol.source.Vector({
 //   features: new ol.format.GeoJSON().readFeatures(geojsonObject3),
 // });
 
-var link_Layer = new ol.layer.Vector({
-  source: vectorSource,
-  style: styleFunction,
-  visible: true,
-});
-var link_Layer2 = new ol.layer.Vector({
-  source: vectorSource2,
-  style: styleFunction2,
-  visible: true,
-});
+// var link_Layer = new ol.layer.Vector({
+//   source: vectorSource,
+//   style: styleFunction,
+//   visible: true,
+// });
+// var link_Layer2 = new ol.layer.Vector({
+//   source: vectorSource2,
+//   style: styleFunction2,
+//   visible: true,
+// });
 // var link_Layer3 = new ol.layer.Vector({
 //   source: vectorSource3,
 //   style: styleFunction3,
@@ -539,8 +539,8 @@ var flightsLayer_5 = new ol.layer.Vector({
     }
   },
 });
-map.addLayer(link_Layer);
-map.addLayer(link_Layer2);
+// map.addLayer(link_Layer);
+// map.addLayer(link_Layer2);
 // map.addLayer(link_Layer3);
 map.addLayer(flightsLayer_1);
 map.addLayer(flightsLayer_2);

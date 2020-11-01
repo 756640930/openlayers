@@ -118,7 +118,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
-// import 'ol/ol.css';
 // // import Circle from 'ol/geom/Circle';
 // import Feature from 'ol/Feature';
 // // import GeoJSON from 'ol/format/GeoJSON';
@@ -141,6 +140,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 //   Select
 // } from "ol/interaction";
 // // import Overlay from 'ol/Overlay';
+controls;
 var container = document.getElementById('popup');
 var content_element = document.getElementById('popup-content');
 var closer = document.getElementById('popup-closer');
@@ -271,9 +271,9 @@ map.addLayer(tileLayerBiying); // /**
 // });
 //绑定多选框
 
-var controls = document.getElementById('controls'); // 事件委托
+var control = document.getElementById('controls'); // 事件委托
 
-controls.addEventListener('click', function (event) {
+control.addEventListener('click', function (event) {
   if (event.target.checked) {
     // 如果选中某一复选框
     // 通过DOM元素的id值来判断应该对哪个图层进行显示
@@ -868,7 +868,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51321" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54572" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

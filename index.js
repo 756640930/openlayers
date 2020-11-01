@@ -52,20 +52,20 @@ map.addLayer(tileLayerBiying);
 //  * Add a click handler to hide the popup.
 //  * @return {boolean} Don't follow the href.
 //  */
-closer.onclick = function () {
-  overlay.setPosition(undefined);
-  closer.blur();
-  return false;
-};
+// closer.onclick = function () {
+//   overlay.setPosition(undefined);
+//   closer.blur();
+//   return false;
+// };
 
-//修改选择功能的默认属性
-var selectPointerMove = new ol.interaction.Select({
-  condition: ol.events.condition.pointerMove,
-});
+// //修改选择功能的默认属性
+// var selectPointerMove = new ol.interaction.Select({
+//   condition: ol.events.condition.pointerMove,
+// });
 
 
 
-//总网络link的style
+// //总网络link的style
 // var styles = {
 //   'LineString': new ol.style.Style({
 //     stroke: new ol.style.Stroke({
@@ -108,7 +108,7 @@ var selectPointerMove = new ol.interaction.Select({
 // var link3_data = window.link3_geojson_data;
 
 
-//转化geojson数据的坐标系
+// //转化geojson数据的坐标系
 // for(var i = 0;i < link_data.features.length;i++){
 //   //开始转换
 //   for(var j=0;j<link_data.features[i].geometry.coordinates.length;j++){
@@ -128,10 +128,10 @@ var selectPointerMove = new ol.interaction.Select({
 //   }
 // };
 
-//总网络geo数据
+// 总网络geo数据
 // var geojsonObject = link_data;
 // var geojsonObject2 = link2_data;
-// // var geojsonObject3 = link3_data;
+// var geojsonObject3 = link3_data;
 // //加载道路geojson对象数据
 // var vectorSource = new ol.source.Vector({
 //   features: new ol.format.GeoJSON().readFeatures(geojsonObject),
@@ -219,27 +219,27 @@ let controls = document.getElementById('controls');
         });
 
 
-map.on('click', function (evt) {
-  var feature = map.forEachFeatureAtPixel(evt.pixel,function(feature, layer) 
-  {
-      return feature;
-    });
-  if (feature) {
-      var geometry = feature.getGeometry();
-      var coord = evt.coordinate
-      var contents = '<p>title_name1: content</p>'+'<br/>'+'<p>title_name2: content</p>'+'<br/>'+'<p>......</p>';    
-      content_element.innerHTML = contents;
-      overlay.setPosition(coord);
-  }
-});
+// map.on('click', function (evt) {
+//   var feature = map.forEachFeatureAtPixel(evt.pixel,function(feature, layer) 
+//   {
+//       return feature;
+//     });
+//   if (feature) {
+//       var geometry = feature.getGeometry();
+//       var coord = evt.coordinate
+//       var contents = '<p>title_name1: content</p>'+'<br/>'+'<p>title_name2: content</p>'+'<br/>'+'<p>......</p>';    
+//       content_element.innerHTML = contents;
+//       overlay.setPosition(coord);
+//   }
+// });
 
-map.on('pointermove', function(e) {
-  if (e.dragging) return;
+// map.on('pointermove', function(e) {
+//   if (e.dragging) return;
      
-  var pixel = map.getEventPixel(e.originalEvent);
-  var hit = map.hasFeatureAtPixel(pixel);
-  map.getTargetElement().style.cursor = hit ? 'pointer' : '';
-});
+//   var pixel = map.getEventPixel(e.originalEvent);
+//   var hit = map.hasFeatureAtPixel(pixel);
+//   map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+// });
 
 
 

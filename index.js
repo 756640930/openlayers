@@ -1,4 +1,3 @@
-
 // // import Circle from 'ol/geom/Circle';
 // import Feature from 'ol/Feature';
 // // import GeoJSON from 'ol/format/GeoJSON';
@@ -21,7 +20,7 @@
 //   Select
 // } from "ol/interaction";
 // // import Overlay from 'ol/Overlay';
-controls
+
 
 var container = document.getElementById('popup');
 var content_element = document.getElementById('popup-content');
